@@ -1,0 +1,92 @@
+<form [formGroup]="apiForm" (ngSubmit)="onSubmit()" class="api-form-container">
+
+  <!-- Error message -->
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+
+  <!-- HTTP Method (Dropdown) -->
+  <div class="form-group">
+    <label for="method">HTTP Method</label>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Select HTTP Method</mat-label>
+      <mat-select id="method" formControlName="method">
+        <mat-option value="GET">GET</mat-option>
+        <mat-option value="POST">POST</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- URL -->
+  <div class="form-group">
+    <label for="url">URL</label>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>API URL</mat-label>
+      <input matInput id="url" formControlName="url" placeholder="https://api.example.com" required />
+    </mat-form-field>
+  </div>
+
+  <!-- Headers Section -->
+  <div class="form-group headers-section">
+    <h3>Headers</h3>
+    <div formArrayName="headers">
+      <div *ngFor="let header of headers.controls; let i = index" [formGroupName]="i" class="header-item">
+        <mat-form-field appearance="outline" class="header-input">
+          <mat-label>Header Key</mat-label>
+          <input matInput formControlName="key" placeholder="Header Key" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="header-input">
+          <mat-label>Header Value</mat-label>
+          <input matInput formControlName="value" placeholder="Header Value" />
+        </mat-form-field>
+        <button mat-icon-button color="warn" (click)="removeHeader(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <button mat-raised-button color="primary" type="button" (click)="addHeader()">Add Header</button>
+    </div>
+  </div>
+
+  <!-- Body Section -->
+  <div class="form-group">
+    <label for="body">Body</label>
+    <mat-form-field appearance="outline" class="full-width">
+      <mat-label>Request Body (JSON)</mat-label>
+      <textarea matInput id="body" formControlName="body" placeholder="Request Body (JSON)" class="full-width"></textarea>
+    </mat-form-field>
+  </div>
+
+  <!-- Params Section -->
+  <div class="form-group params-section">
+    <h3>Params</h3>
+    <div formArrayName="params">
+      <div *ngFor="let param of params.controls; let i = index" [formGroupName]="i" class="param-item">
+        <mat-form-field appearance="outline" class="param-input">
+          <mat-label>Param Key</mat-label>
+          <input matInput formControlName="key" placeholder="Param Key" />
+        </mat-form-field>
+        <mat-form-field appearance="outline" class="param-input">
+          <mat-label>Param Value</mat-label>
+          <input matInput formControlName="value" placeholder="Param Value" />
+        </mat-form-field>
+        <button mat-icon-button color="warn" (click)="removeParam(i)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+      <button mat-raised-button color="primary" type="button" (click)="addParam()">Add Param</button>
+    </div>
+  </div>
+
+  <!-- Other Options Section -->
+  <div class="form-group">
+    <h3>Other Options</h3>
+    <mat-checkbox formControlName="withCredentials">With Credentials</mat-checkbox>
+    <mat-checkbox formControlName="reportProgress">Report Progress</mat-checkbox>
+  </div>
+
+  <!-- Action Buttons: Save Request and Reset Form -->
+  <div class="form-group">
+    <button mat-raised-button color="accent" type="submit" [disabled]="apiForm.invalid">Save Request</button>
+    <button mat-raised-button color="warn" type="button" (click)="resetForm()">Reset Form</button>
+  </div>
+</form>

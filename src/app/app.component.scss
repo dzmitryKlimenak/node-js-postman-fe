@@ -1,0 +1,55 @@
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+mat-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  height: calc(100vh - 64px); /* Full height minus toolbar */
+  padding: 20px;
+}
+
+.api-list-section, .api-form-section {
+  flex: 1;
+  overflow: auto;
+  padding: 20px;
+}
+
+.api-list-section {
+  background-color: #4b4b4b;
+}
+
+.api-form-section {
+  background-color: #4b4b4b;
+}
+
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+::ng-deep {
+  .mat-button.mat-primary, .mat-icon-button.mat-primary, .mat-stroked-button.mat-primary {
+    color: #dea3fc !important;
+  }
+
+  .mat-form-field-appearance-outline.mat-focused .mat-form-field-outline-thick {
+    color: #dea3fc !important;
+  }
+
+  .mat-form-field.mat-focused .mat-form-field-label {
+    color: #dea3fc !important;
+  }
+
+  .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+    color: #dea3fc !important;
+  }
+}

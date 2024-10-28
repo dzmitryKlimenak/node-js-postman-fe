@@ -1,0 +1,9 @@
+<h2>API List</h2>
+
+<mat-list>
+  <mat-list-item *ngFor="let api of apiList">
+    <span>{{ api.method }} - {{ api.url }}</span>
+    <button mat-button color="primary" (click)="selectApi(api)">Edit</button>
+    <button mat-button color="warn" (click)="deleteApi(api)">Delete</button>
+  </mat-list-item>
+</mat-list>

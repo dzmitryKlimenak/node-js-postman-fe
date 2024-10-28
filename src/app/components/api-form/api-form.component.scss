@@ -1,0 +1,57 @@
+.api-form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Add gap between sections */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Add subtle shadow */
+  max-width: 600px;
+  margin: auto;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* Space between form fields */
+}
+
+.full-width {
+  width: 100%; /* Make input fields full width */
+}
+
+.headers-section, .params-section {
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-top: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+header-item, .param-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-input, .param-input {
+  flex: 1; /* Ensure form fields take up available space */
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+h3 {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+mat-form-field {
+  width: 100%; /* Ensure that all input fields take full width */
+}
+
+button {
+  margin-top: 10px;
+}

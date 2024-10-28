@@ -1,0 +1,9 @@
+<div class="container">
+  <mat-card class="api-list-section">
+    <app-api-list [refresh]="refreshApiList" (apiSelected)="onApiSelected($event)"></app-api-list>
+  </mat-card>
+
+  <mat-card class="api-form-section">
+    <app-api-form (apiSaved)="onApiSaved()" [selectedApi]="selectedApi"></app-api-form>
+  </mat-card>
+</div>
